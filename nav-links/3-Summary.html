@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <main class="main" id="main">
+
+        <div class="sidebar" id="sidebar">
+
+            <div class="logo">
+               <p>Dashboard</p>
+            </div>
+
+            <ul class="navigation">
+                <li><i class="fa-solid fa-house"></i> <a href="../index.html" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li><i class="fa-solid fa-chart-line"></i> <a href="./2-Analytics.html" style="text-decoration: none; color: inherit;">Analytics</a></li>
+                <li><i class="fa-solid fa-clipboard-list"></i><a href="" style="text-decoration: none; color: inherit;">Summary</a></li>
+                <li><i class="fa-solid fa-dollar-sign"></i><a href="./4-Revenue.html" style="text-decoration: none; color: inherit;">Revenue</a></li>
+                <li><i class="fa-regular fa-user"></i> <a href="./5-Browse.html" style="text-decoration: none; color: inherit;">Browse</a></li>
+            </ul>
+            
+
+        </div>
+
+
+
+        <div class="main-area" id="main-area">
+
+            <!-- header  -->
+
+            <header class="header">
+
+                <div class="intro">
+                    <h1>Welcome back, Harsh 👋</h1>
+                </div>
+
+                <div class="profile">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_msbOQNHqa_sbWywnb7Fvnyw3VXT3Rvp0qqd5XuO0a0hFE=s160-c-k-c0x00ffffff-no-rj" alt="profile">
+                    <p>Harsh</p>
+                    <p>Logout</p>
+                </div>
+
+            </header>
+
+            <div id="about-section">
+                <h2 id="aboutHeading">About</h2>
+                <h2 id="ChannelDetail">Channel details</h2>
+                <ul>
+                    <li><i class="fa-solid fa-earth-americas"></i> www.youtube.com/@harshkhulbe6399</li>
+                    <li><i class="fa-solid fa-user-plus"></i> 13.8K subscribers</li>
+                    <li><i class="fa-solid fa-upload"></i> 21 videos</li>
+                    <li><i class="fa-solid fa-eye"></i> 721,589 views</li>
+                    <li><i class="fa-solid fa-right-to-bracket"></i> Joined Jan 17, 2017</li>
+                    <li>India</li>
+                    <li><i class="fa-solid fa-earth-asia"></i> <a target="_blank" href="https://youtube.com/@harshkhulbe6399?si=6ZLYKEB-HWplZJeM" style="color: rgb(16, 162, 172);">Share Link</a></li>
+                </ul>
+            </div>
+
+          
+
+
+
+        </div>
+
+    </main>
+    <style>
+
+        .main-area{
+            display: flex;
+        }
+        #about-section{
+            background-color: #423F3E;
+            width: 500px;
+            height: 400px;
+            display: flex;
+            justify-self: center;
+            align-self: center;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+            border-radius: 10px;
+        }
+        #ChannelDetail{
+            margin: 10px;
+        }
+        #about-section>ul{
+            margin-top: 10px;
+        }
+        #about-section li{
+            margin: 7px;
+            font-size: 20px;
+        }
+        #about-section a{
+            text-decoration: none;
+        }
+        #aboutHeading{
+            margin-top: 10px;
+        }
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./index.js"></script>
+   
+    
+</body>
+</html>

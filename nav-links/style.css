@@ -1,0 +1,258 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.main 
+{
+    width: 100%;
+    height: 100vh;
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1%;
+}
+
+.sidebar 
+{
+    height: 95vh;
+    width: 15%;
+    background-color: #161616;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    color: white;
+    border-radius: 10px;
+}
+
+.logo
+{
+    width: 100%;
+    padding: 20px 50px;
+    font-family: segoe UI;
+    font-weight: 800;
+    display: flex;
+    font-size: 2rem;
+}
+
+#start-tour{
+    background-color: #4a85f8; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#tour-progress {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 4px;
+    margin-top: 10px;
+}
+        
+#tour-progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.3s;
+}
+
+.navigation
+{
+    width: 100%;
+    padding: 20px 50px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    font-family: segoe UI;
+    font-size: 1.1rem;
+    font-weight: 400;
+    row-gap: 20px;
+}
+
+.navigation >li 
+{
+    padding-bottom: 20px;
+    cursor: pointer;
+    transition: .3s;
+    border-bottom: 1px solid #161616;
+}
+
+.navigation >li:hover 
+{
+    border-bottom: 1px solid #3d3d3d;
+    color: #4a85f8;
+}
+
+.navigation > li > i
+{
+    margin-right: 20px;
+}
+
+.main-area
+{
+    width: 83%;
+    height: 95vh;
+    background-color: #161616;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: segoe UI;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.main-area::-webkit-scrollbar
+{
+    width: 10px;
+}
+
+.main-area::-webkit-scrollbar-thumb
+{
+    background-color: #4a85f8;
+    border-radius: 30px;
+}
+
+.header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.intro 
+{
+    width: max-content;
+}
+
+.profile
+{
+    width: max-content;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.profile > img 
+{
+    width: 40px;
+    border-radius: 50%;
+}
+
+.stats 
+{
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat 
+{
+    width: 24%;
+    padding: 20px;
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;    
+    transition: .3s;
+    cursor: pointer;
+}
+
+.stat:hover 
+{
+    background-color: #4a85f8;
+}
+
+.charts 
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 15px;
+}
+
+.line-chart
+{
+    height: 400px;
+    width: 49.3%;
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.products 
+{
+    width: 100%;
+    padding: 20px;
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.table
+{
+    width: 100%;
+    margin-top: 10px;
+}
+th 
+{
+    padding: 20px 0px;  
+    text-align: center;
+}
+
+td
+{
+    border-top: 1px solid #161616;  
+    padding: 20px 0px;  
+    text-align: center;
+}
+
+/* Custom Shepherd.js styles */
+.shepherd-button-primary {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 3px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.shepherd-button-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 3px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Progress Bar */
+#tour-progress {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 4px;
+    margin-top: 10px;
+}
+
+#tour-progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.3s;
+}

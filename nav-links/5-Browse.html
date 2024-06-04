@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <main class="main" id="main">
+
+        <div class="sidebar" id="sidebar">
+
+            <div class="logo">
+               <p>Dashboard</p>
+            </div>
+
+            <ul class="navigation">
+                <li><i class="fa-solid fa-house"></i> <a href="../index.html" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li><i class="fa-solid fa-chart-line"></i> <a href="./2-Analytics.html" style="text-decoration: none; color: inherit;">Analytics</a></li>
+                <li><i class="fa-solid fa-clipboard-list"></i><a href="./3-Summary.html" style="text-decoration: none; color: inherit;">Summary</a></li>
+                <li><i class="fa-solid fa-dollar-sign"></i><a href="./4-Revenue.html" style="text-decoration: none; color: inherit;">Revenue</a></li>
+                <li><i class="fa-regular fa-user"></i> <a href="" style="text-decoration: none; color: inherit;">Browse</a></li>
+            </ul>
+            
+
+        </div>
+
+
+
+        <div class="main-area" id="main-area">
+
+            <!-- header  -->
+
+            <header class="header">
+
+                <div class="intro">
+                    <h1>Welcome back, Harsh 👋</h1>
+                </div>
+
+                <div class="profile">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_msbOQNHqa_sbWywnb7Fvnyw3VXT3Rvp0qqd5XuO0a0hFE=s160-c-k-c0x00ffffff-no-rj" alt="profile">
+                    <p>Harsh</p>
+                    <p>Logout</p>
+                </div>
+
+            </header>
+
+
+            <!-- stats area  -->
+
+            <div id="browseChannels">
+                <h1>YouTube Statistics</h1>
+                <div class="input-group">
+                    <label for="channelID">Channel ID</label>
+                    <input type="text" id="channelID">
+                </div>
+                <div class="input-group">
+                    <label for="videoID">Video ID</label>
+                    <input type="text" id="videoID">
+                </div>
+                <button id="button" onclick="getStatistics()">Show Statistics</button>
+                <p class="statistics">
+                    Statistics: <br>
+                    - Channel Name: <span id="channelName"></span> <br>
+                    - Channel Subs: <span id="channelSubscribers"></span><br>
+                    - Channel Views: <span id="channelViews"></span><br>
+                    - Video Views: <span id="videoViews"></span><br>
+                    - Video Likes: <span id="videoLikes"></span><br>
+                    - Video Comments: <span id="videoComments"></span><br>
+                </p>
+            </div>
+
+
+        </div>
+
+    </main>
+    <style>
+        #browseChannels{
+            display: flex;
+            justify-self: center;
+            align-self: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 700px;
+            width: 400px;
+            background-color: rgb(56, 51, 51);
+            border-radius: 20px;
+            margin-top: 50px;
+            
+        }
+
+        input{
+            border-radius: 5px;
+            border: none;
+            width: 150px;
+            height: 30px;
+            padding: 3px;
+            margin: 3px;
+        }
+
+        #main-area{
+            display: flex;
+        }
+
+        #browseChannels > button{
+            margin: 5px;
+            border: none;
+            border-radius: 3px;
+            width: 100px;
+            height: 40px;
+        }
+        .input-group{
+            margin: 10px;
+        }
+
+    </style>
+
+    <script>
+        var apiKey = 'AIzaSyCV7EKzpKFGRd873ww_YGk8X8kmO-1bZ1s';
+
+        function getStatistics() {
+            getChannelStatistics().then(() => getVideoStatistics());
+        }
+
+        function getChannelStatistics() {
+            var channelID = document.querySelector("#channelID").value;
+            var part = 'snippet,contentDetails,statistics';
+            var url = 'https://www.googleapis.com/youtube/v3/channels';
+            url += '?part=' + encodeURIComponent(part);
+            url += '&id=' + encodeURIComponent(channelID);
+            url += '&key=' + encodeURIComponent(apiKey);
+
+            return fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    var channel = data.items[0];
+                    document.querySelector('#channelName').innerHTML = channel.snippet.title;
+                    document.querySelector('#channelSubscribers').innerHTML = channel.statistics.subscriberCount;
+                    document.querySelector('#channelViews').innerHTML = channel.statistics.viewCount;
+                });
+        }
+
+        function getVideoStatistics() {
+            var videoID = document.querySelector('#videoID').value;
+            var part = 'snippet,statistics';
+            var url = 'https://www.googleapis.com/youtube/v3/videos';
+            url += '?part=' + encodeURIComponent(part);
+            url += '&id=' + encodeURIComponent(videoID);
+            url += '&key=' + encodeURIComponent(apiKey);
+
+            return fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    var video = data.items[0];
+                    document.querySelector('#videoViews').innerHTML = video.statistics.viewCount;
+                    document.querySelector('#videoLikes').innerHTML = video.statistics.likeCount;
+                    document.querySelector('#videoComments').innerHTML = video.statistics.commentCount;
+                });
+        }
+    </script>
+   
+    
+</body>
+</html>
